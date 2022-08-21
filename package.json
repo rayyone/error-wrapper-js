@@ -1,0 +1,63 @@
+{
+  "name": "ry-error-wrapper",
+  "description": "Error wrapper for Rayyone React Projects",
+  "version": "0.0.1",
+  "author": "Rayyone Ltd.",
+  "keywords": [
+    "rayyone",
+    "axios",
+    "error handler",
+    "error wrapper",
+    "sentry",
+    "react",
+    "react js",
+    "react native"
+  ],
+  "license": "MIT",
+  "repository": {
+    "url": "git+https://github.com/rayyone/error-wrapper-js.git",
+    "type": "git"
+  },
+  "engines": {
+    "node": "12 || 14 || 16 || 17"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prettier:write": "npx prettier --write **/*.{js,ts,tsx}",
+    "lint": "eslint ./src --ext .js,.jsx --fix",
+    "prepare": "yarn run build"
+  },
+  "dependencies": {
+    "@sentry/react": "^7.11.1",
+    "@types/node": "^18.7.5",
+    "axios": "^0.27.2",
+    "typescript": "^4.1.2"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-typescript": "^7.15.0",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "eslint-config-airbnb-typescript": "^14.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1"
+  },
+  "bugs": {
+    "url": "https://github.com/rayyone/error-wrapper-js/issues"
+  },
+  "homepage": "https://github.com/rayyone/error-wrapper-js#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  }
+}
