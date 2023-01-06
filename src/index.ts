@@ -74,7 +74,7 @@ export class AppError extends Error {
     this.userMsg = this.originalErrMsg;
     this.isOffline = this.isNetworkError(this.err);
     if (this.isOffline) {
-      alert('Oops, something went wrong with your internet connection');
+      console.log('Oops, something went wrong with your internet connection');
     }
     if (isAxiosErr(this.err)) {
       this.userMsg = this.err?.response?.data?.message || this.userMsg;
