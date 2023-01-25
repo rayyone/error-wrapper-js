@@ -41,7 +41,7 @@ export class AppError extends Error {
 
   statusCode?: number;
 
-  isOffline?: boolean;
+  isConnectFailed?: boolean;
 
   constructor(
     err: AppErrType | unknown | string,
@@ -67,14 +67,14 @@ export class AppError extends Error {
     this.contexts = undefined;
     this.statusCode = isAxiosErr(this.err) ? this.err?.response?.status : 500;
     this.handleErr(userMessage, shouldReport);
-    this.isOffline = false;
+    this.isConnectFailed = false;
   }
 
   handleErr = (userMessage: string, shouldReport: boolean) => {
     this.userMsg = this.originalErrMsg;
-    this.isOffline = this.isNetworkError(this.err);
-    if (this.isOffline) {
-      console.log('Oops, something went wrong with your internet connection');
+    this.isConnectFailed = this.isNetworkError(this.err);
+    if (this.isConnectFailed) {
+      console.log('Oops, something went wrong. Either internet connection or the called server host');
     }
     if (isAxiosErr(this.err)) {
       this.userMsg = this.err?.response?.data?.message || this.userMsg;
@@ -84,7 +84,7 @@ export class AppError extends Error {
     console.log('---------Debug:---------');
     console.log(this.debugMsg);
     this.printLog(this.err);
-    if (this.isOffline) {
+    if (this.isConnectFailed) {
       shouldReport = false;
     }
     if (shouldReport) {
