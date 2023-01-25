@@ -67,7 +67,6 @@ export class AppError extends Error {
     this.contexts = undefined;
     this.statusCode = isAxiosErr(this.err) ? this.err?.response?.status : 500;
     this.handleErr(userMessage, shouldReport);
-    this.isConnectFailed = false;
   }
 
   handleErr = (userMessage: string, shouldReport: boolean) => {
